@@ -1,0 +1,32 @@
+  cd GitSample1/
+  206  ls
+  207  echo Learning stashing>s.txt
+  208  ls
+  209  git stash
+  210  git add .
+  211  git stash
+  212  git stash show -p
+  213  git stash list
+  214  touch b.txt
+  215  git status
+  216  git add .
+  217  git stash save "testing stash with a msg"
+  218  git stash list
+  219  git stash show 1
+  220  git stash show 0
+  221  ls
+  222  vim abc.txt
+  223  git stash
+  224  git stash list
+  225  git status
+  226  git stash pop 0
+  227  git stash save "pending 60% task"
+  228  git stash list
+  229  git stash pop 2
+  230  vim s.txt
+  231  git status
+  232  git add .
+  233  git commit -m "adding s.txt"
+  234  git push origin main
+  235  history
+
