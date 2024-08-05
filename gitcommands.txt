@@ -1,4 +1,208 @@
-  cd GitSample1/
+git --version
+    2  git help config
+    3  git config -- help
+    4  git config --help
+    5  mkdir gittest
+    6  cd gittest
+    7  git init
+    8  git status
+    9  git add demo.txt
+   10  git commit -m "commiting demo.txt"
+   11  cks
+   12  cls
+   13  clear
+   14  git config --global user.username sudhakarbalag
+   15  git remote add origin https://github.com/sudhakarbalag/git_test_demo.git
+   16  git push origin master
+   17  git config --global user.email codewithbala@gmail.com
+   18  git config --list
+   19  git diff
+   20  clear
+   21  cd gittest
+   22  git diff
+   23  git push origin master
+   24  git remote add origin Hello from Gittest folder and demo.txt
+   25  clear
+   26  git remote add origin https://github.com/sudhakarbalag/git_test_demo.git
+   27  git push origin master
+   28  git branch first_branch
+   29  git chekout first_branch
+   30  git checkout first_branch
+   31  git add demo3.txt
+   32  git commit -m "made changes"
+   33  ls
+   34  git checkout master
+   35  ls
+   36  git merge first_branch
+   37  ls
+   38  ls
+   39  git push origin https://github.com/sudhakarbalag/git_test_demo.git
+   40  gh repo clone sudhakarbalag/git_test_demo
+   41  git push origin master
+   42  exit
+   43  #!/bin/bash
+   44  sudo apt update && sudo apt upgrade -y
+   45  sudo apt install default-jdk -y
+   46  sudo java -version
+   47  sudo mkdir -p /usr/share/keyrings
+   48  sudo curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+   49  sudo echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+   50  sudo apt update -y
+   51  sudo apt install jenkins -y
+   52  systemctl status jenkins --no-pager -l
+   53  sudo systemctl enable --now jenkins
+   54  sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+   55  #!/bin/bash
+   56  sudo apt update && sudo apt upgrade -y
+   57  sudo apt install default-jdk -y
+   58  sudo java -version
+   59  sudo mkdir -p /usr/share/keyrings
+   60  sudo curl -fsSL https://pkg.jenkins.io/debian-stable/jenkins.io-2023.key | sudo tee   /usr/share/keyrings/jenkins-keyring.asc > /dev/null
+   61  sudo echo deb [signed-by=/usr/share/keyrings/jenkins-keyring.asc]   https://pkg.jenkins.io/debian-stable binary/ | sudo tee   /etc/apt/sources.list.d/jenkins.list > /dev/null
+   62  sudo apt update -y
+   63  sudo apt install jenkins -y
+   64  systemctl status jenkins --no-pager -l
+   65  sudo systemctl enable --now jenkins
+   66  sudo cat /var/lib/jenkins/secrets/initialAdminPassword
+   67  #!/bin/bash
+   68  # Licensed to the Apache Software Foundation (ASF) under one or more
+   69  # contributor license agreements.  See the NOTICE file distributed with
+   70  # this work for additional information regarding copyright ownership.
+   71  # The ASF licenses this file to You under the Apache License, Version 2.0
+   72  # (the "License"); you may not use this file except in compliance with
+   73  # the License.  You may obtain a copy of the License at
+   74  #
+   75  #    http://www.apache.org/licenses/LICENSE-2.0
+   76  #
+   77  # Unless required by applicable law or agreed to in writing, software
+   78  # distributed under the License is distributed on an "AS IS" BASIS,
+   79  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+   80  # See the License for the specific language governing permissions and
+   81  # limitations under the License.
+   82  if [ $# -lt 1 ]; then    echo "USAGE: $0 [-daemon] zookeeper.properties";        exit 1; fi
+   83  base_dir=$(dirname $0)
+   84  if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then     export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/log4j.properties"; fi
+   85  if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then     export KAFKA_HEAP_OPTS="-Xmx512M -Xms512M"; fi
+   86  EXTRA_ARGS=${EXTRA_ARGS-'-name zookeeper -loggc'}
+   87  COMMAND=$1
+   88  case $COMMAND in   -daemon)      EXTRA_ARGS="-daemon "$EXTRA_ARGS;      shift;      ;;  *)      ;; esac
+   89  exec $base_dir/kafka-run-class.sh $EXTRA_ARGS org.apache.zookeeper.server.quorum.QuorumPeerMain "$@"
+   90  #!/bin/bash
+   91  # Licensed to the Apache Software Foundation (ASF) under one or more
+   92  # contributor license agreements.  See the NOTICE file distributed with
+   93  # this work for additional information regarding copyright ownership.
+   94  # The ASF licenses this file to You under the Apache License, Version 2.0
+   95  # (the "License"); you may not use this file except in compliance with
+   96  # the License.  You may obtain a copy of the License at
+   97  #
+   98  #    http://www.apache.org/licenses/LICENSE-2.0
+   99  #
+  100  # Unless required by applicable law or agreed to in writing, software
+  101  # distributed under the License is distributed on an "AS IS" BASIS,
+  102  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  103  # See the License for the specific language governing permissions and
+  104  # limitations under the License.
+  105  if [ $# -lt 1 ]; then    echo "USAGE: $0 [-daemon] server.properties [--override property=value]*";        exit 1; fi
+  106  base_dir=$(dirname $0)
+  107  if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then     export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/log4j.properties"; fi
+  108  if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then     export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"; fi
+  109  EXTRA_ARGS=${EXTRA_ARGS-'-name kafkaServer -loggc'}
+  110  COMMAND=$1
+  111  case $COMMAND in   -daemon)     EXTRA_ARGS="-daemon "$EXTRA_ARGS;     shift;     ;;   *)     ;; esac
+  112  exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka "$@"
+  113  #!/bin/bash
+  114  # Licensed to the Apache Software Foundation (ASF) under one or more
+  115  # contributor license agreements.  See the NOTICE file distributed with
+  116  # this work for additional information regarding copyright ownership.
+  117  # The ASF licenses this file to You under the Apache License, Version 2.0
+  118  # (the "License"); you may not use this file except in compliance with
+  119  # the License.  You may obtain a copy of the License at
+  120  #
+  121  #    http://www.apache.org/licenses/LICENSE-2.0
+  122  #
+  123  # Unless required by applicable law or agreed to in writing, software
+  124  # distributed under the License is distributed on an "AS IS" BASIS,
+  125  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  126  # See the License for the specific language governing permissions and
+  127  # limitations under the License.
+  128  if [ $# -lt 1 ]; then    echo "USAGE: $0 [-daemon] server.properties [--override property=value]*";        exit 1; fi
+  129  base_dir=$(dirname $0)
+  130  if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then     export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/log4j.properties"; fi
+  131  if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then     export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"; fi
+  132  EXTRA_ARGS=${EXTRA_ARGS-'-name kafkaServer -loggc'}
+  133  COMMAND=$1
+  134  case $COMMAND in   -daemon)     EXTRA_ARGS="-daemon "$EXTRA_ARGS;     shift;     ;;   *)     ;; esac
+  135  exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka "$@"
+  136  #!/bin/bash
+  137  # Licensed to the Apache Software Foundation (ASF) under one or more
+  138  # contributor license agreements.  See the NOTICE file distributed with
+  139  # this work for additional information regarding copyright ownership.
+  140  # The ASF licenses this file to You under the Apache License, Version 2.0
+  141  # (the "License"); you may not use this file except in compliance with
+  142  # the License.  You may obtain a copy of the License at
+  143  #
+  144  #    http://www.apache.org/licenses/LICENSE-2.0
+  145  #
+  146  # Unless required by applicable law or agreed to in writing, software
+  147  # distributed under the License is distributed on an "AS IS" BASIS,
+  148  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  149  # See the License for the specific language governing permissions and
+  150  # limitations under the License.
+  151  if [ $# -lt 1 ]; then    echo "USAGE: $0 [-daemon] server.properties [--override property=value]*";        exit 1; fi
+  152  base_dir=$(dirname $0)
+  153  if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then     export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/log4j.properties"; fi
+  154  if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then     export KAFKA_HEAP_OPTS="-Xmx1G -Xms1G"; fi
+  155  EXTRA_ARGS=${EXTRA_ARGS-'-name kafkaServer -loggc'}
+  156  COMMAND=$1
+  157  case $COMMAND in   -daemon)     EXTRA_ARGS="-daemon "$EXTRA_ARGS;     shift;     ;;   *)     ;; esac
+  158  exec $base_dir/kafka-run-class.sh $EXTRA_ARGS kafka.Kafka "$@"
+  159  #!/bin/bash
+  160  # Licensed to the Apache Software Foundation (ASF) under one or more
+  161  # contributor license agreements.  See the NOTICE file distributed with
+  162  # this work for additional information regarding copyright ownership.
+  163  # The ASF licenses this file to You under the Apache License, Version 2.0
+  164  # (the "License"); you may not use this file except in compliance with
+  165  # the License.  You may obtain a copy of the License at
+  166  #
+  167  #    http://www.apache.org/licenses/LICENSE-2.0
+  168  #
+  169  # Unless required by applicable law or agreed to in writing, software
+  170  # distributed under the License is distributed on an "AS IS" BASIS,
+  171  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  172  # See the License for the specific language governing permissions and
+  173  # limitations under the License.
+  174  if [ $# -lt 1 ]; then    echo "USAGE: $0 [-daemon] zookeeper.properties";        exit 1; fi
+  175  base_dir=$(dirname $0)
+  176  if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then     export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/log4j.properties"; fi
+  177  if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then     export KAFKA_HEAP_OPTS="-Xmx512M -Xms512M"; fi
+  178  EXTRA_ARGS=${EXTRA_ARGS-'-name zookeeper -loggc'}
+  179  COMMAND=$1
+  180  case $COMMAND in   -daemon)      EXTRA_ARGS="-daemon "$EXTRA_ARGS;      shift;      ;;  *)      ;; esac
+  181  exec $base_dir/kafka-run-class.sh $EXTRA_ARGS org.apache.zookeeper.server.quorum.QuorumPeerMain "$@"
+  182  #!/bin/bash
+  183  # Licensed to the Apache Software Foundation (ASF) under one or more
+  184  # contributor license agreements.  See the NOTICE file distributed with
+  185  # this work for additional information regarding copyright ownership.
+  186  # The ASF licenses this file to You under the Apache License, Version 2.0
+  187  # (the "License"); you may not use this file except in compliance with
+  188  # the License.  You may obtain a copy of the License at
+  189  #
+  190  #    http://www.apache.org/licenses/LICENSE-2.0
+  191  #
+  192  # Unless required by applicable law or agreed to in writing, software
+  193  # distributed under the License is distributed on an "AS IS" BASIS,
+  194  # WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+  195  # See the License for the specific language governing permissions and
+  196  # limitations under the License.
+  197  if [ $# -lt 1 ]; then    echo "USAGE: $0 [-daemon] zookeeper.properties";        exit 1; fi
+  198  base_dir=$(dirname $0)
+  199  if [ "x$KAFKA_LOG4J_OPTS" = "x" ]; then     export KAFKA_LOG4J_OPTS="-Dlog4j.configuration=file:$base_dir/../config/log4j.properties"; fi
+  200  if [ "x$KAFKA_HEAP_OPTS" = "x" ]; then     export KAFKA_HEAP_OPTS="-Xmx512M -Xms512M"; fi
+  201  EXTRA_ARGS=${EXTRA_ARGS-'-name zookeeper -loggc'}
+  202  COMMAND=$1
+  203  case $COMMAND in   -daemon)      EXTRA_ARGS="-daemon "$EXTRA_ARGS;      shift;      ;;  *)      ;; esac
+  204  exec $base_dir/kafka-run-class.sh $EXTRA_ARGS org.apache.zookeeper.server.quorum.QuorumPeerMain "$@"
+  205  cd GitSample1/
   206  ls
   207  echo Learning stashing>s.txt
   208  ls
