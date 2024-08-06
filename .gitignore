@@ -1,3 +1,8 @@
+#all xlsx
+*.xlsx
+# all PPT
+*.pptx
+
 # Compiled class file
 *.class
 
